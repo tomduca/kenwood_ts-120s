@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 300" width="680" height="300" font-family="Arial, Helvetica, sans-serif" font-size="13">
-<title>Sonda de diodo para tester con bloqueo de continua</title>
+<title>Diode probe for a multimeter with DC blocking</title>
 <rect width="680" height="300" fill="#ffffff"/>
 <circle cx="50" cy="110" r="5" fill="#222"/>
-<text x="30" y="76" text-anchor="start" fill="#222" font-weight="bold">Punta</text>
+<text x="30" y="76" text-anchor="start" fill="#222" font-weight="bold">Tip</text>
 <line x1="55" y1="110" x2="118" y2="110" stroke="#222" stroke-width="1.5"/>
 <line x1="118" y1="92" x2="118" y2="128" stroke="#222" stroke-width="2"/>
 <line x1="130" y1="92" x2="130" y2="128" stroke="#222" stroke-width="2"/>
 <text x="90" y="80" text-anchor="start" fill="#222">C1 1 nF</text>
-<text x="90" y="148" text-anchor="start" fill="#222">código 102</text>
+<text x="90" y="148" text-anchor="start" fill="#222">code 102</text>
 <line x1="130" y1="110" x2="290" y2="110" stroke="#222" stroke-width="1.5"/>
 <circle cx="200" cy="110" r="3" fill="#222"/>
-<text x="188" y="98" text-anchor="start" fill="#222">nodo A</text>
+<text x="188" y="98" text-anchor="start" fill="#222">node A</text>
 <line x1="200" y1="110" x2="200" y2="158" stroke="#222" stroke-width="1.5"/>
 <line x1="186" y1="158" x2="214" y2="158" stroke="#222" stroke-width="2.5"/>
 <polygon points="186,188 214,188 200,158" fill="none" stroke="#222" stroke-width="1.5"/>
 <line x1="200" y1="188" x2="200" y2="230" stroke="#222" stroke-width="1.5"/>
 <text x="226" y="168" text-anchor="start" fill="#222" font-weight="bold">D1</text>
-<text x="226" y="186" text-anchor="start" fill="#222">banda hacia el nodo A</text>
+<text x="226" y="186" text-anchor="start" fill="#222">band towards node A</text>
 <rect x="290" y="98" width="60" height="24" rx="3" fill="none" stroke="#222" stroke-width="1.5"/>
 <text x="298" y="86" text-anchor="start" fill="#222">R 220 kΩ</text>
 <line x1="350" y1="110" x2="470" y2="110" stroke="#222" stroke-width="1.5"/>
@@ -26,15 +26,15 @@
 <line x1="394" y1="172" x2="426" y2="172" stroke="#222" stroke-width="2"/>
 <line x1="410" y1="172" x2="410" y2="230" stroke="#222" stroke-width="1.5"/>
 <text x="384" y="162" text-anchor="end" fill="#222">C2 10 nF</text>
-<text x="384" y="180" text-anchor="end" fill="#222">código 103</text>
+<text x="384" y="180" text-anchor="end" fill="#222">code 103</text>
 <line x1="55" y1="230" x2="470" y2="230" stroke="#222" stroke-width="1.5"/>
 <circle cx="50" cy="230" r="5" fill="#222"/>
-<text x="30" y="258" text-anchor="start" fill="#222" font-weight="bold">Clip a masa cercana</text>
+<text x="30" y="258" text-anchor="start" fill="#222" font-weight="bold">Clip to nearby ground</text>
 <rect x="470" y="90" width="150" height="160" rx="8" fill="#f1f1f1" stroke="#222" stroke-width="1"/>
-<text x="545" y="164" text-anchor="middle" fill="#222" font-weight="bold">Tester</text>
-<text x="545" y="184" text-anchor="middle" fill="#222">20 V continua</text>
+<text x="545" y="164" text-anchor="middle" fill="#222" font-weight="bold">Multimeter</text>
+<text x="545" y="184" text-anchor="middle" fill="#222">20 V DC</text>
 <circle cx="470" cy="110" r="4" fill="#222"/>
 <circle cx="470" cy="230" r="4" fill="#222"/>
-<text x="482" y="114" text-anchor="start" fill="#222">V (rojo)</text>
-<text x="482" y="234" text-anchor="start" fill="#222">COM (negro)</text>
+<text x="482" y="114" text-anchor="start" fill="#222">V (red)</text>
+<text x="482" y="234" text-anchor="start" fill="#222">COM (black)</text>
 </svg>

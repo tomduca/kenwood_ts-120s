@@ -1,38 +1,38 @@
-# Kenwood TS-120S: diario técnico 2026
+# Kenwood TS-120S: 2026 technical log
 
-Diario de reparación y mantenimiento de un transceptor Kenwood TS-120S (HF, FI de 8,83 MHz). Reúne el historial de intervenciones, la pérdida repentina de TX de octubre de 2026, las mediciones, las conclusiones, la resolución y los pendientes.
+Repair and maintenance log for a Kenwood TS-120S transceiver (HF, 8.83 MHz IF). It covers the repair history, the sudden loss of TX in October 2026, the measurements, the conclusions, the fix and the open items.
 
-## Estado actual (17/10/2026)
+## Current status (2026-10-17)
 
-- TX y RX funcionando en todas las bandas.
-- Última reparación: una **viruta de estaño hacía puente entre colector y emisor de Q7** (RF unit) y dejaba sin excitación a la Final (sin TX en SSB ni en CW). Se limpió y se desoldó la viruta el 17/10/2026 y el TX volvió a funcionar.
-- Pendientes principales: controles de cierre tras la reparación (corriente de reposo de la Final, AVB con excitación normal), RIT, medidor IC, S-meter en bandas altas, deriva del VFO, pot RF GAIN, recap de las unidades restantes y calibración. Detalle en [docs/06-pendientes.md](docs/06-pendientes.md).
+- TX and RX working on all bands.
+- Latest repair: a **solder sliver was bridging the collector and emitter of Q7** (RF unit), leaving the Final unit with no drive (no TX in SSB or CW). The sliver was cleaned off and desoldered on 2026-10-17 and TX came back.
+- Main open items: post-repair checks (Final unit idle current, AVB under normal drive), RIT, IC meter, S-meter on the high bands, VFO drift, RF GAIN pot, recap of the remaining units and calibration. Details in [docs/06-open-items.md](docs/06-open-items.md).
 
-## Contenido
+## Contents
 
-| Documento | Qué contiene |
+| Document | What it contains |
 |---|---|
-| [docs/01-historial-de-intervenciones.md](docs/01-historial-de-intervenciones.md) | Cronología de reparaciones y mantenimiento, con tablas por unidad |
-| [docs/02-incidente-tx-oct-2026.md](docs/02-incidente-tx-oct-2026.md) | La pérdida repentina de TX: síntoma, diagnóstico paso a paso, causa raíz y resolución |
-| [docs/03-mediciones-y-niveles.md](docs/03-mediciones-y-niveles.md) | Todas las mediciones (DC y niveles con SDR), niveles nominales del manual y tabla para valores de referencia |
-| [docs/04-referencia-tecnica.md](docs/04-referencia-tecnica.md) | Camino de TX, Q7, alimentaciones, corrientes de reposo, protecciones, boletines de servicio |
-| [docs/05-metodologia-y-sondas.md](docs/05-metodologia-y-sondas.md) | Cómo se midió: sondas, frecuencias, ajustes del SDR, puntos de prueba y precauciones |
-| [docs/06-pendientes.md](docs/06-pendientes.md) | Pendientes priorizados |
-| [img/](img/) | Esquemas de las dos sondas (SVG) |
+| [docs/01-repair-history.md](docs/01-repair-history.md) | Chronology of repairs and maintenance, with tables per unit |
+| [docs/02-tx-incident-oct-2026.md](docs/02-tx-incident-oct-2026.md) | The sudden loss of TX: symptom, step-by-step diagnosis, root cause and fix |
+| [docs/03-measurements-and-levels.md](docs/03-measurements-and-levels.md) | All measurements (DC and SDR levels), nominal levels from the manual and a table for reference values |
+| [docs/04-technical-reference.md](docs/04-technical-reference.md) | TX path, Q7, supply rails, idle currents, protections, service bulletins |
+| [docs/05-methodology-and-probes.md](docs/05-methodology-and-probes.md) | How it was measured: probes, frequencies, SDR settings, test points and precautions |
+| [docs/06-open-items.md](docs/06-open-items.md) | Prioritized open items |
+| [img/](img/) | Schematics of the two probes (SVG) |
 
-## Cómo leer este diario
+## How to read this log
 
-- Muchos valores esperados salen de **imágenes escaneadas** del esquema de WB4KDI y del manual de servicio. Confirmarlos en papel antes de concluir.
-- Las fechas son aproximadas salvo indicación. La pérdida de TX ocurrió unos dos días antes del 17/10/2026.
-- Los pares RX/TX de las tablas van en ese orden. Las tensiones son en continua salvo que se indique "eficaz" o "pico".
-- Los niveles del SDR son **SNR relativos**, no calibrados: sirven para comparar puntos con la misma ganancia y el mismo ancho de banda.
+- Many expected values come from **scanned images** of the WB4KDI schematic and the service manual. Confirm them on paper before drawing conclusions.
+- Dates are approximate unless stated otherwise. The loss of TX happened about two days before 2026-10-17.
+- RX/TX pairs in the tables are in that order. Voltages are DC unless marked "RMS" or "peak".
+- SDR levels are **relative SNR**, not calibrated: they are only useful for comparing points measured with the same gain and the same bandwidth.
 
-## Fuentes
+## Sources
 
-- Manual de servicio Kenwood TS-120S (diagrama de niveles p. 36, diagrama de fallas p. 34, ajustes pp. 38 a 40).
-- Esquemas de WB4KDI (TS-120S/TS-120V). La placa real tiene un D8 en la RF unit que el esquema no muestra.
-- Boletines de servicio SB-816, SB-832 y SB-844.
+- Kenwood TS-120S service manual (level diagram p. 36, troubleshooting chart p. 34, adjustments pp. 38 to 40).
+- WB4KDI schematics (TS-120S/TS-120V). The actual board has a D8 in the RF unit that the schematic does not show.
+- Service bulletins SB-816, SB-832 and SB-844.
 
-## Créditos
+## Credits
 
-Armado con ayuda de Claude (Anthropic) a partir de una sesión de diagnóstico.
+Put together with help from Claude (Anthropic) from a diagnostic session.

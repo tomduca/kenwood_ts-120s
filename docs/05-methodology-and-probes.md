@@ -1,73 +1,73 @@
-# Metodología y sondas
+# Methodology and probes
 
-Cómo se midió durante el incidente, para poder repetir o comparar.
+How measurements were taken during the incident, so they can be repeated or compared.
 
-## Sondas
+## Probes
 
-### Sonda de diodo para tester (tensión de pico, con bloqueo de continua)
+### Diode probe for a multimeter (peak voltage, DC blocked)
 
-![Sonda de diodo](../img/sonda-diodo-tester.svg)
+![Diode probe](../img/diode-probe-multimeter.svg)
 
-| Componente | Valor |
+| Component | Value |
 |---|---|
-| C1 | 1 nF (102), cerámico de 50 V o más |
-| D1 | 1N4148 (silicio) o 1N60 (germanio); la banda (cátodo) hacia el nodo A |
+| C1 | 1 nF (102), ceramic, 50 V or more |
+| D1 | 1N4148 (silicon) or 1N60 (germanium); band (cathode) towards node A |
 | R | 220 kohm |
 | C2 | 10 nF (103) |
 
-- Uso: punta en el punto a medir, clip de masa cerca, tester en continua en el jack V (nunca en Amp), escala de 20 V o de 2 V.
-- Limitación: el silicio no rectifica por debajo de unos 0,5 V de pico y el germanio por debajo de unos 0,2 V. Una lectura de 0 no prueba que no haya señal.
-- Con el 1N60, no pasar de unos 15 a 20 V de pico (menor tensión inversa que el silicio).
+- Use: tip on the point to measure, ground clip close by, multimeter on DC in the V jack (never in Amp), 20 V or 2 V range.
+- Limitation: silicon does not rectify below about 0.5 V peak and germanium below about 0.2 V. A reading of 0 does not prove there is no signal.
+- With the 1N60, do not exceed about 15 to 20 V peak (lower reverse voltage than silicon).
 
-### Sonda de contacto para SDR (divisor capacitivo)
+### Contact probe for the SDR (capacitive divider)
 
-![Sonda SDR](../img/sonda-sdr-contacto.svg)
+![SDR probe](../img/sdr-contact-probe.svg)
 
-| Versión | C | R | Atenuación aprox. | Uso |
+| Version | C | R | Approx. attenuation | Use |
 |---|---|---|---|---|
-| Principal | 33 pF | 4,6 kohm | unos 40 dB | Colectores, PO, T1 y T2 |
-| Bajo nivel | 820 pF | 460 ohm | unos 20 dB | Solo puntos sin continua (DRV, base de Q1) |
+| Main | 33 pF | 4.6 kohm | about 40 dB | Collectors, PO, T1 and T2 |
+| Low level | 820 pF | 460 ohm | about 20 dB | Only points with no DC (DRV, Q1 base) |
 
-La atenuación supone la entrada del SDR en 50 ohm. No lleva diodo: el SDR necesita la RF tal cual. El capacitor bloquea la continua y debe ir del lado de la punta.
+The attenuation assumes a 50 ohm SDR input. It has no diode: the SDR needs the RF as is. The capacitor blocks DC and must be on the tip side.
 
-## Ajustes del SDR (SDR++)
+## SDR settings (SDR++)
 
-- **Misma ganancia, mismo zoom, ancho de banda y tamaño de FFT** en toda una serie. Se usó ganancia 25,4 (la mitad aproximadamente).
-- CW, carrier al 50 %, carga fantasma, manipulador cerrado 3 o 4 segundos por punto.
-- Anotar el SNR de la línea que **aparece solo en TX**. En CW esa línea puede quedar a unos cientos de Hz del RX.
-- El SNR no es lineal: tomar diferencias como orientación (más o menos 5 a 10 dB). Si un punto satura, anotarlo como "saturado".
+- **Same gain, same zoom, bandwidth and FFT size** across a whole series. Gain 25.4 was used (roughly half).
+- CW, carrier at 50 %, dummy load, key held down 3 or 4 seconds per point.
+- Record the SNR of the line that **only appears on TX**. In CW that line can sit a few hundred Hz away from the RX frequency.
+- SNR is not linear: take differences as a guide (plus or minus 5 to 10 dB). If a point saturates, record it as "saturated".
 
-## Frecuencia del SDR según el punto
+## SDR frequency by point
 
-| Grupo | Frecuencia |
+| Group | Frequency |
 |---|---|
-| IF unit, J30, J32 y J35 (TIF) | 8,83 MHz (portadora de TX en torno a 8825 a 8831 kHz) |
-| C52, BPF, Q7 a Q9, DRV, Final y PO | Frecuencia de operación (por ejemplo 7074 kHz) |
+| IF unit, J30, J32 and J35 (TIF) | 8.83 MHz (TX carrier around 8825 to 8831 kHz) |
+| C52, BPF, Q7 to Q9, DRV, Final unit and PO | Operating frequency (for example 7074 kHz) |
 
-Comparar niveles entre ambos grupos con la misma sonda y ganancia es válido con una diferencia de pocos dB por frecuencia.
+Comparing levels between the two groups with the same probe and gain is valid to within a few dB of frequency-dependent difference.
 
-## Recorrido de TX con puntos de prueba
+## TX path with test points
 
-| # | Unidad | Punto | Frecuencia |
+| # | Unit | Point | Frequency |
 |---|---|---|---|
-| 1 | IF unit | J30, pin GEN | 8,83 MHz |
-| 2 | IF unit | J32, pin TIF | 8,83 MHz |
-| 3 | RF unit | J35, pin 2 (TIF) | 8,83 MHz |
-| 4 | RF unit | C52, pad del lado de R36 (debajo de Q6) | Operación |
-| 5 | RF unit | C11 (pata del lado de L8 y del lado de L7) y C10 (pata del lado de L6): sector de 7 MHz, la fila con C12 100P, C11 39P y C10 82P | Operación |
-| 6 | RF unit | C54, pata del lado de Q7 (salida del BPF) | Operación |
-| 7 | RF unit | J34, pines ANT y MKR (fuga hacia la antena) | Operación |
-| 8 | RF unit | DRV (salida) | Operación |
-| 9 | Final | DRV (entrada), colector de Q1 (pata de C6), colectores de Q2/Q3 (patas de C15), bases de Q4/Q5 | Operación |
-| 10 | Final | PO (solo con el carrier al mínimo) | Operación |
+| 1 | IF unit | J30, GEN pin | 8.83 MHz |
+| 2 | IF unit | J32, TIF pin | 8.83 MHz |
+| 3 | RF unit | J35, pin 2 (TIF) | 8.83 MHz |
+| 4 | RF unit | C52, pad on the R36 side (under Q6) | Operating |
+| 5 | RF unit | C11 (leg on the L8 side and on the L7 side) and C10 (leg on the L6 side): 7 MHz section, the row with C12 100P, C11 39P and C10 82P | Operating |
+| 6 | RF unit | C54, leg on the Q7 side (BPF output) | Operating |
+| 7 | RF unit | J34, ANT and MKR pins (leakage towards the antenna) | Operating |
+| 8 | RF unit | DRV (output) | Operating |
+| 9 | Final | DRV (input), Q1 collector (C6 leg), Q2/Q3 collectors (C15 legs), Q4/Q5 bases | Operating |
+| 10 | Final | PO (only with the carrier at minimum) | Operating |
 
-Criterio: el nivel debería subir o mantenerse entre puntos consecutivos según las ganancias nominales (ver [mediciones](03-mediciones-y-niveles.md)). Una caída de 20 dB o más entre dos puntos marca el tramo cortado.
+Criterion: the level should rise or hold between consecutive points according to the nominal gains (see [measurements](03-measurements-and-levels.md)). A drop of 20 dB or more between two points marks the broken section.
 
-## Precauciones
+## Precautions
 
-- Cable rojo del tester **siempre en el jack V** para tensión. En el jack de Amp es un cortocircuito directo.
-- No apoyar la sonda en el primario de T4 ni en los colectores de Q4/Q5 (RF fuerte y 13,8 V muy cerca de masa).
-- No sondear con puntas los pines de los 3SK74 (cuatro pines juntos); medir en componentes vecinos o por tensión.
-- En los bipolares de potencia la estática no es crítica; en los 3SK74 de la RF unit sí: tocar masa seguido.
-- Con el equipo apagado y el cable de DC afuera para ohmetro y para tocar placas. En TX, mediciones de 3 a 5 segundos.
-- No tocar VR1 ni VR2 mientras no se resuelva una falla.
+- Red multimeter lead **always in the V jack** for voltage. In the Amp jack it is a dead short.
+- Do not put the probe on the T4 primary or on the Q4/Q5 collectors (strong RF and 13.8 V very close to ground).
+- Do not probe the pins of the 3SK74s with test leads (four pins close together); measure on neighboring components or by voltage.
+- On the power bipolars static is not critical; on the RF unit 3SK74s it is: touch ground frequently.
+- With the radio off and the DC cable unplugged for ohmmeter work and for touching boards. On TX, measurements of 3 to 5 seconds.
+- Do not touch VR1 or VR2 until a fault is resolved.

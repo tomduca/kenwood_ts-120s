@@ -1,27 +1,27 @@
-# Pendientes
+# Open items
 
-Priorizados. Los problemas secundarios vienen del resumen más antiguo; los de cierre, de la pérdida de TX de octubre de 2026.
+Prioritized. The secondary problems come from the older summary; the close-out items come from the October 2026 loss of TX.
 
-## Prioridad alta: cierre de la reparación de Q7
+## High priority: closing out the Q7 repair
 
-1. **Revisar el entorno de Q7:** R41 y R43 (100 ohm, con la viruta soportaron unos 0,3 W cada una), L30 y C57; medir Q8 en TX (base unos 2,8 V, emisor 2,1 V, colector 9,9 V).
-2. **Comprobar con carga fantasma** la potencia, el ALC y el IC con carrier moderado, y completar la tabla de valores de referencia de [03](03-mediciones-y-niveles.md).
-3. **Medir AVB con excitación normal.** El transistor de paso (Q9 de la Filter unit) es un 2SA755, no el original.
-4. **Ajustar la corriente de reposo según el manual** (100 mA los finales con VR2, 150 mA Q2/Q3 con VR1). Se midieron unos 160 mA en los finales; más corriente de reposo es más calor en la Final.
+1. **Check the parts around Q7:** R41 and R43 (100 ohm, each dissipated about 0.3 W while the sliver was in place), L30 and C57; measure Q8 on TX (base about 2.8 V, emitter 2.1 V, collector 9.9 V).
+2. **Check into a dummy load** the power, ALC and IC with moderate carrier, and fill in the reference values table in [03](03-measurements-and-levels.md).
+3. **Measure AVB under normal drive.** The pass transistor (Filter unit Q9) is a 2SA755, not the original.
+4. **Set the idle current per the manual** (100 mA for the finals with VR2, 150 mA for Q2/Q3 with VR1). About 160 mA was measured on the finals; more idle current means more heat in the Final unit.
 
-## Prioridad media: mantenimiento
+## Medium priority: maintenance
 
-5. **Inspección sistemática de soldaduras y coaxiles,** y de restos de estaño suelto, en la RF unit, la Filter unit y la Relay unit. El equipo tiene un historial de soldaduras partidas (coaxil de la Relay unit, Filter unit, J41) y ahora una viruta de estaño en Q7.
-6. **Pasta térmica de Q2 a Q5 y sensores de temperatura:** acordado limpiar y renovar sin desoldar nada, con los sensores en su lugar, con pasta no conductora en película fina. No se hizo todavía.
-7. **Posible soldadura fría en el terminal de base de uno de los 2SC2290** (línea visible, sin juego): refluir solo si la superficie es opaca o tiene una grieta en anillo; hacerlo con soldador de temperatura controlada y 40 a 60 W, fundente y un disipador en el terminal. Anotar antes y después la tensión de base (0,65 V en TX) y los mV del shunt (2,4 mV).
-8. **Recap pendiente:** CAR unit, Counter unit y Final unit. En la Final, los electrolíticos de bias (C12 y C25) y de desacople (C20 y C37).
+5. **Systematic inspection of solder joints and coax,** and of loose solder debris, in the RF unit, the Filter unit and the Relay unit. The radio has a history of cracked joints (Relay unit coax, Filter unit, J41) and now a solder sliver on Q7.
+6. **Thermal paste on Q2 to Q5 and the temperature sensors:** agreed to clean and renew without desoldering anything, with the sensors in place, using non-conductive paste in a thin film. Not done yet.
+7. **Possible cold joint on the base lead of one of the 2SC2290s** (visible line, no play): reflow only if the surface is dull or has a ring crack; do it with a temperature-controlled 40 to 60 W iron, flux and a heatsink on the lead. Record the base voltage (0.65 V on TX) and the shunt mV (2.4 mV) before and after.
+8. **Pending recap:** CAR unit, Counter unit and Final unit. In the Final unit, the bias (C12 and C25) and decoupling (C20 and C37) electrolytics.
 
-## Problemas secundarios (del resumen más antiguo)
+## Secondary problems (from the older summary)
 
-9. **RIT inutilizable** tras el recap. Probable cable del wiper (RT1) cortado entre el pot frontal y el pin 11 de J4 en la AF-GEN. Verificar continuidad con la radio apagada y J4 desconectado.
-10. **Potenciómetros dobles concéntricos del panel (VR1, VR2 y VR3):** reemplazo. Se pueden usar 50K en lugar de los 10K/5K originales con poco impacto, salvo VR3 (la sección RIT, de 5K). El switch de VR2 es el punto crítico de compatibilidad mecánica.
-11. **Medidor IC** no calibrable con VR1 de la Filter unit: posible pista de carbón gastada.
-12. **S-meter duro en 20, 15 y 10 m:** posible desalineación de L16/L17; re-medir D4 y D5.
-13. **Micro-deriva del VFO:** eje del capacitor variable con lubricación sucia.
-14. **Pot RF GAIN** trabado mecánicamente: requiere reemplazo.
-15. **Calibración** completa de IF, RF y S-meter con generador; ajuste del BPF en 20, 15 y 10 m; ajuste fino de T1 a T9 de la IF (hoy a oído).
+9. **RIT unusable** after the recap. Probably a broken wiper wire (RT1) between the front-panel pot and pin 11 of J4 on the AF-GEN. Check continuity with the radio off and J4 disconnected.
+10. **Front-panel dual concentric pots (VR1, VR2 and VR3):** replacement. 50K can be used instead of the original 10K/5K with little impact, except VR3 (the RIT section, 5K). The VR2 switch is the critical point for mechanical compatibility.
+11. **IC meter** cannot be calibrated with Filter unit VR1: possibly a worn carbon track.
+12. **S-meter insensitive on 20, 15 and 10 m:** possible misalignment of L16/L17; re-measure D4 and D5.
+13. **VFO micro-drift:** variable capacitor shaft with dirty lubrication.
+14. **RF GAIN pot** mechanically jammed: needs replacement.
+15. **Full calibration** of IF, RF and S-meter with a generator; BPF alignment on 20, 15 and 10 m; fine alignment of IF T1 to T9 (currently done by ear).

@@ -1,101 +1,101 @@
-# Historial de intervenciones
+# Repair history
 
-Orden cronológico, de lo más antiguo a lo más reciente. Las dos primeras fases salen de dos relatos del propietario: el resumen de la reparación del pitido (el más antiguo) y la bitácora completa (más reciente).
+Chronological order, oldest first. The first two phases come from two accounts by the owner: the summary of the squeal repair (the older one) and the full logbook (more recent).
 
-## Fase 1: reparación del pitido en TX (la más antigua)
+## Phase 1: TX squeal repair (the oldest)
 
-**Síntoma:** pitido u oscilación en TX en bandas altas (20, 15 y 10 m), progresivo. Ausente en 40 y 80 m. Intermitente al principio y luego constante. 40 W de salida en SSB sin modular. El monitor externo se apagaba al PTT en 10 m.
+**Symptom:** squeal or oscillation on TX on the high bands (20, 15 and 10 m), getting progressively worse. Absent on 40 and 80 m. Intermittent at first, then constant. 40 W output in SSB with no modulation. The external monitor shut off on PTT on 10 m.
 
-**Causas encontradas y resueltas**
+**Causes found and fixed**
 
-1. Soldadura partida en el coaxil de la Relay unit (X41) hacia la RF unit. Refluida y reforzada. Resolvió la mayor parte del problema; el pitido quedó solo en 10 m.
-2. Diodo D8 (original 1S1585) con fuga inversa (600 mV directa y 1360 mV inversa fuera de placa). D2, D3 y D8 se reemplazaron provisoriamente por 1N4148, lo que resolvió el pitido y los 40 W sin modular. Después D8 pasó a 1N4448.
-3. Soldadura partida en la Filter unit, en la línea de señal. Resolvió la atenuación de recepción posterior al TX en frío.
+1. Cracked solder joint on the coax from the Relay unit (X41) to the RF unit. Reflowed and reinforced. Fixed most of the problem; the squeal remained only on 10 m.
+2. Diode D8 (original 1S1585) with reverse leakage (600 mV forward and 1360 mV reverse, out of circuit). D2, D3 and D8 were temporarily replaced with 1N4148s, which fixed the squeal and the 40 W with no modulation. D8 was later changed to a 1N4448.
+3. Cracked solder joint in the Filter unit, on the signal line. Fixed the reduced receive level after transmitting from cold.
 
-**Boletines de servicio aplicados**
+**Service bulletins applied**
 
-| Boletín | Cambio |
+| Bulletin | Change |
 |---|---|
-| SB-844 | R47 de 33 a 10 ohm, R50 de 560 a 680 ohm, C61 retirado, capacitor de 0,01 uF de bypass en la línea AVB |
-| SB-832 | Diodos D2, D3 y D8 reemplazados |
-| SB-816 | R3, R5, R7, R9 y R11 de 1,5K a 470 ohm en la RF unit |
+| SB-844 | R47 from 33 to 10 ohm, R50 from 560 to 680 ohm, C61 removed, 0.01 uF bypass capacitor on the AVB line |
+| SB-832 | Diodes D2, D3 and D8 replaced |
+| SB-816 | R3, R5, R7, R9 and R11 from 1.5K to 470 ohm in the RF unit |
 
-**Recap en esta fase:** RF unit, IF unit, AF-GEN unit y PLL unit.
+**Recap in this phase:** RF unit, IF unit, AF-GEN unit and PLL unit.
 
-**Calibraciones posteriores al recap:** VR2 de la IF (cero del S-meter y ALC reajustado, porque los capacitores nuevos corrieron el offset) y VR1 de la IF (span del S-meter ajustado parcialmente a oído).
+**Calibrations after the recap:** IF VR2 (S-meter zero and ALC readjusted, because the new capacitors shifted the offset) and IF VR1 (S-meter span partially adjusted by ear).
 
-**Problemas secundarios identificados en esa fase:** ver [pendientes](06-pendientes.md).
+**Secondary problems identified in that phase:** see [open items](06-open-items.md).
 
-## Fase 2: mantenimiento y eventos posteriores (bitácora, la más reciente)
+## Phase 2: maintenance and later events (logbook, the most recent)
 
-Tres eventos separados:
+Three separate events:
 
-1. Recambio de diodos en varias unidades (por degradación y como prevención).
-2. Recambio de electrolíticos en las unidades Relay, RF, IF, AF-GEN, PLL y Filter.
-3. Cambio de transistores en la Filter unit por el **evento del cable AVB**: el cable entre la Filter unit y la Final se cortó accidentalmente contra una chapa durante una intervención y produjo un corto a masa, que quemó dos transistores. El cable se reparó y el equipo funcionó bien desde entonces.
+1. Diode replacement in several units (due to degradation and as prevention).
+2. Electrolytic replacement in the Relay, RF, IF, AF-GEN, PLL and Filter units.
+3. Transistor replacement in the Filter unit due to the **AVB cable event**: the cable between the Filter unit and the Final unit was accidentally cut against a sheet-metal edge during a repair and shorted to ground, which burned out two transistors. The cable was repaired and the radio has worked fine since.
 
 ### RF unit (X44-1260-01)
 
-| Pos. | Original | Reemplazo | Motivo |
+| Ref. | Original | Replacement | Reason |
 |---|---|---|---|
-| D1, D3, D5 | 1S1587 | 1N4448 | Preventivo |
-| D2 | 1S2588 | BA389 | Preventivo; antes había un componente incorrecto (DO-35) |
-| D4 | 1S2588 | BA389 | Degradado (870 mV fuera de placa); antes componente incorrecto |
-| D6 | 1S1555 | 1N4448 | Preventivo |
-| D7 | 1N60 | 1N60 nuevo | Se había puesto uno de silicio por error (medía 760 mV) |
-| D8 | 1S1585 | 1N4448 | Se había puesto un 1N4148 por error |
+| D1, D3, D5 | 1S1587 | 1N4448 | Preventive |
+| D2 | 1S2588 | BA389 | Preventive; previously a wrong part had been fitted (DO-35) |
+| D4 | 1S2588 | BA389 | Degraded (870 mV out of circuit); previously a wrong part |
+| D6 | 1S1555 | 1N4448 | Preventive |
+| D7 | 1N60 | New 1N60 | A silicon diode had been fitted by mistake (measured 760 mV) |
+| D8 | 1S1585 | 1N4448 | A 1N4148 had been fitted by mistake |
 
 ### IF unit (X48-1210-01)
 
-| Pos. | Original | Reemplazo | Motivo |
+| Ref. | Original | Replacement | Reason |
 |---|---|---|---|
-| D11 | 1N60 | 1N60 nuevo | Degradado (umbral elevado) |
-| D12 | 1N60 | 1N60 nuevo | Degradado (medía 359 mV fuera de placa) |
-| D14, D15 | 1N60 | 1N60 nuevo | Preventivo |
-| Relay | Original | Relay sellado japonés nuevo | Preventivo |
+| D11 | 1N60 | New 1N60 | Degraded (high threshold) |
+| D12 | 1N60 | New 1N60 | Degraded (measured 359 mV out of circuit) |
+| D14, D15 | 1N60 | New 1N60 | Preventive |
+| Relay | Original | New sealed Japanese relay | Preventive |
 
 ### Filter unit (X51-1200-00)
 
-| Pos. | Original | Reemplazo | Motivo |
+| Ref. | Original | Replacement | Reason |
 |---|---|---|---|
-| Q6 | 2SA562 (Y) | 2SA562 nuevo | Dañado por el corto de la línea AVB |
-| Q9 | 2SA473 (Y) | 2SA755 | Dañado por el corto de la línea AVB |
-| C35 | 220 uF 16 V | 220 uF 25 V | Recap preventivo |
-| (otro) | 10 uF 16 V | 10 uF 25 V | Recap preventivo |
-| (otros) | 1 uF 50 V y 0,47 uF 50 V | Iguales | Recap preventivo |
-| RL1 | Relay original | Relay sellado japonés nuevo | Contactos carbonizados |
+| Q6 | 2SA562 (Y) | New 2SA562 | Damaged by the AVB line short |
+| Q9 | 2SA473 (Y) | 2SA755 | Damaged by the AVB line short |
+| C35 | 220 uF 16 V | 220 uF 25 V | Preventive recap |
+| (other) | 10 uF 16 V | 10 uF 25 V | Preventive recap |
+| (others) | 1 uF 50 V and 0.47 uF 50 V | Same values | Preventive recap |
+| RL1 | Original relay | New sealed Japanese relay | Carbonized contacts |
 
 ### Relay unit (X41-1250-00)
 
-| Pos. | Original | Reemplazo | Motivo |
+| Ref. | Original | Replacement | Reason |
 |---|---|---|---|
-| D1, D2 | 1S1555 | 1N4448 | Preventivo |
+| D1, D2 | 1S1555 | 1N4448 | Preventive |
 
-### Reparaciones mecánicas y eléctricas
+### Mechanical and electrical repairs
 
-| Componente | Intervención | Motivo |
+| Component | Work done | Reason |
 |---|---|---|
-| Conector J41 (ANT/GND coaxial de la Filter unit) | Re-soldado y pistas rotas puenteadas | Soldadura fría partida; causaba atenuación intermitente en RX |
-| Cable AVB (Filter unit a Final unit) | Reparado | Cortado accidentalmente por una chapa durante una intervención |
-| Transformadores T1 a T9 de la IF unit | Optimizados a oído con referencia en TP | Ajuste fino pendiente con generador calibrado |
+| Connector J41 (Filter unit coaxial ANT/GND) | Resoldered and broken traces jumpered | Cracked cold joint; caused intermittent RX attenuation |
+| AVB cable (Filter unit to Final unit) | Repaired | Accidentally cut by a sheet-metal edge during a repair |
+| IF unit transformers T1 to T9 | Peaked by ear with a TP reference | Fine alignment pending with a calibrated generator |
 
-## Fase 3: pérdida repentina de TX, octubre de 2026
+## Phase 3: sudden loss of TX, October 2026
 
-Ver [02-incidente-tx-oct-2026.md](02-incidente-tx-oct-2026.md). Resuelto el 17/10/2026 al limpiar y desoldar una viruta de estaño que hacía puente entre colector y emisor de Q7 de la RF unit.
+See [02-tx-incident-oct-2026.md](02-tx-incident-oct-2026.md). Fixed on 2026-10-17 by cleaning off and desoldering a solder sliver that was bridging the collector and emitter of Q7 in the RF unit.
 
-## Estado conocido de los diodos de la RF unit
+## Known state of the RF unit diodes
 
-Según la bitácora más reciente. El resumen más antiguo decía que D2, D4 y D7 se conservaban originales; la bitácora posterior los reemplazó.
+According to the most recent logbook. The older summary said D2, D4 and D7 were kept original; the later logbook replaced them.
 
-| Diodo | Estado actual |
+| Diode | Current state |
 |---|---|
 | D1, D3, D5 | 1N4448 |
 | D2, D4 | BA389 (DO-35) |
 | D6 | 1N4448 |
-| D7 | 1N60 nuevo (germanio) |
-| D8 | 1N4448 (no figura en el esquema de WB4KDI) |
+| D7 | New 1N60 (germanium) |
+| D8 | 1N4448 (not shown on the WB4KDI schematic) |
 
-## Recap: estado
+## Recap: status
 
-- Hecho: Relay, RF, IF, AF-GEN, PLL y Filter units (parcialmente documentado en la Filter unit).
-- Sin hacer: CAR unit, Counter unit y Final unit (los electrolíticos de bias y desacople de la Final siguen originales).
+- Done: Relay, RF, IF, AF-GEN, PLL and Filter units (partially documented for the Filter unit).
+- Not done: CAR unit, Counter unit and Final unit (the Final unit's bias and decoupling electrolytics are still original).

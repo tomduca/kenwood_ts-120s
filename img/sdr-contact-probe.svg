@@ -1,27 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 260" width="680" height="260" font-family="Arial, Helvetica, sans-serif" font-size="13">
-<title>Sonda de contacto para SDR</title>
+<title>Contact probe for SDR</title>
 <rect width="680" height="260" fill="#ffffff"/>
 <circle cx="50" cy="100" r="5" fill="#222"/>
-<text x="30" y="66" text-anchor="start" fill="#222" font-weight="bold">Punta</text>
+<text x="30" y="66" text-anchor="start" fill="#222" font-weight="bold">Tip</text>
 <line x1="55" y1="100" x2="116" y2="100" stroke="#222" stroke-width="1.5"/>
 <line x1="116" y1="82" x2="116" y2="118" stroke="#222" stroke-width="2"/>
 <line x1="128" y1="82" x2="128" y2="118" stroke="#222" stroke-width="2"/>
-<text x="96" y="140" text-anchor="start" fill="#222" font-weight="bold">C en serie</text>
-<text x="96" y="158" text-anchor="start" fill="#222">33 pF (marca 33)</text>
+<text x="96" y="140" text-anchor="start" fill="#222" font-weight="bold">Series C</text>
+<text x="96" y="158" text-anchor="start" fill="#222">33 pF (marked 33)</text>
 <line x1="128" y1="100" x2="210" y2="100" stroke="#222" stroke-width="1.5"/>
 <rect x="210" y="88" width="70" height="24" rx="3" fill="none" stroke="#222" stroke-width="1.5"/>
-<text x="215" y="76" text-anchor="start" fill="#222" font-weight="bold">R en serie</text>
-<text x="215" y="132" text-anchor="start" fill="#222">4,6 kΩ</text>
+<text x="215" y="76" text-anchor="start" fill="#222" font-weight="bold">Series R</text>
+<text x="215" y="132" text-anchor="start" fill="#222">4.6 kΩ</text>
 <line x1="280" y1="100" x2="400" y2="100" stroke="#222" stroke-width="1.5"/>
 <circle cx="400" cy="100" r="4" fill="#222"/>
 <rect x="400" y="70" width="210" height="130" rx="8" fill="#f1f1f1" stroke="#222" stroke-width="1"/>
-<text x="505" y="126" text-anchor="middle" fill="#222" font-weight="bold">Coaxil al SDR</text>
-<text x="505" y="146" text-anchor="middle" fill="#222">conector SMA</text>
-<text x="414" y="94" text-anchor="start" fill="#222">central</text>
+<text x="505" y="126" text-anchor="middle" fill="#222" font-weight="bold">Coax to SDR</text>
+<text x="505" y="146" text-anchor="middle" fill="#222">SMA connector</text>
+<text x="414" y="94" text-anchor="start" fill="#222">center</text>
 <line x1="55" y1="200" x2="400" y2="200" stroke="#222" stroke-width="1.5"/>
 <circle cx="400" cy="200" r="4" fill="#222"/>
 <circle cx="50" cy="200" r="5" fill="#222"/>
-<text x="30" y="228" text-anchor="start" fill="#222" font-weight="bold">Clip a masa cercana</text>
-<text x="414" y="194" text-anchor="start" fill="#222">malla</text>
-<text x="30" y="250" text-anchor="start" fill="#222">Versión de bajo nivel: 820 pF (821) y 460 Ω, solo en puntos sin continua.</text>
+<text x="30" y="228" text-anchor="start" fill="#222" font-weight="bold">Clip to nearby ground</text>
+<text x="414" y="194" text-anchor="start" fill="#222">shield</text>
+<text x="30" y="250" text-anchor="start" fill="#222">Low-level version: 820 pF (821) and 460 Ω, only on points with no DC.</text>
 </svg>

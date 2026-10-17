@@ -1,123 +1,123 @@
-# Mediciones y niveles
+# Measurements and levels
 
-Todas las mediciones se tomaron **con la falla presente**, salvo la última sección (valores de referencia con el equipo funcionando, a completar). Pares RX / TX salvo indicación. CW, carga fantasma, 3 a 5 segundos por medición de TX.
+All measurements were taken **with the fault present**, except the last section (reference values with the radio working, to be filled in). RX / TX pairs unless stated otherwise. CW, dummy load, 3 to 5 seconds per TX measurement.
 
-## 1. Fuente y consumo
+## 1. Power supply and current draw
 
-| Medición | Valor |
+| Measurement | Value |
 |---|---|
-| Tensión de la fuente | 14 V estable, sin caída en TX |
-| Consumo RX | 0,73 A |
-| Consumo TX (CW) | 1,87 A, sin variar con el carrier |
-| AVB en la entrada de la Final | 0 V / 11,3 V |
-| AVB en J33 (RF unit) | 0 V / 11,4 V |
-| J33 KEY (CW) | 0 V / 0,34 V, fijo |
-| J33 pin -6 V | -5,94 V / -5,89 V |
+| Supply voltage | 14 V stable, no sag on TX |
+| RX current draw | 0.73 A |
+| TX current draw (CW) | 1.87 A, not changing with the carrier |
+| AVB at the Final unit input | 0 V / 11.3 V |
+| AVB at J33 (RF unit) | 0 V / 11.4 V |
+| J33 KEY (CW) | 0 V / 0.34 V, fixed |
+| J33 -6 V pin | -5.94 V / -5.89 V |
 
-## 2. Final unit: continua
+## 2. Final unit: DC
 
-| Punto | RX | TX |
+| Point | RX | TX |
 |---|---|---|
-| Q1 base | 0 | 1,65 a 1,84 V |
-| Q1 colector | 0 | 11,0 a 11,2 V |
-| Q1 emisor | n/d | 0,9 V |
-| Q6 base / emisor | n/d | 1,35 V / 0,76 V |
-| Q7 (Final) base / emisor | 0 / 0 | 1,39 V / 0,79 V |
-| Q7 (Final) colector | 13,97 V | 13,79 V |
-| Q2/Q3 base | 0 | 0,72 V |
-| Q2/Q3 emisor | 0 | 0 |
-| Q2/Q3 colector | 13,97 V | 13,79 V |
-| Q4/Q5 base | 0 | 0,65 V |
-| Q4/Q5 colector | 13,89 V | 13,84 V |
+| Q1 base | 0 | 1.65 to 1.84 V |
+| Q1 collector | 0 | 11.0 to 11.2 V |
+| Q1 emitter | n/a | 0.9 V |
+| Q6 base / emitter | n/a | 1.35 V / 0.76 V |
+| Q7 (Final) base / emitter | 0 / 0 | 1.39 V / 0.79 V |
+| Q7 (Final) collector | 13.97 V | 13.79 V |
+| Q2/Q3 base | 0 | 0.72 V |
+| Q2/Q3 emitter | 0 | 0 |
+| Q2/Q3 collector | 13.97 V | 13.79 V |
+| Q4/Q5 base | 0 | 0.65 V |
+| Q4/Q5 collector | 13.89 V | 13.84 V |
 
-**Resistencia de 15 mohm (alimentación F14 de los finales):** ambos extremos a 14 V incluso con el equipo apagado. Entre extremos: 0 mV en RX y 2,4 mV en TX (unos 160 mA), sin variar con el carrier en CW. El manual da 100 mA de reposo para los finales.
+**15 mohm resistor (F14 supply to the finals):** both ends at 14 V even with the radio switched off. Across it: 0 mV on RX and 2.4 mV on TX (about 160 mA), not changing with the carrier in CW. The manual specifies 100 mA idle for the finals.
 
-**Ohmetro con el equipo apagado** (artefactos de medir en circuito, no indican falla): colector de Q4/Q5 en OL en ambos sentidos y luego 0,08 V con pitido (rojo a masa, negro a colector); Q1 158 y 170; Q2/Q3 "cerrado" en las tres patas. Los colectores de Q4 y Q5 son el mismo nodo (primario de T4).
+**Ohmmeter with the radio off** (artifacts of measuring in circuit, not a sign of a fault): Q4/Q5 collector OL in both directions and then 0.08 V with a beep (red to ground, black to collector); Q1 158 and 170; Q2/Q3 "shorted" on all three legs. The Q4 and Q5 collectors are the same node (T4 primary).
 
-## 3. RF unit: mezclador Q5/Q6 (RX / TX)
+## 3. RF unit: mixer Q5/Q6 (RX / TX)
 
 | Pin | Q5 | Q6 |
 |---|---|---|
-| Compuerta | -3,1 / 0,68 V | -3,0 / 0,67 V |
-| Compuerta | -3,34 / 0,77 V | -3,34 / 0,77 V |
-| Fuente | 0 / 1,0 V | 0 / 1,0 V |
-| Drenador | 13,6 / 12,68 V | 13,6 / 12,7 V |
+| Gate | -3.1 / 0.68 V | -3.0 / 0.67 V |
+| Gate | -3.34 / 0.77 V | -3.34 / 0.77 V |
+| Source | 0 / 1.0 V | 0 / 1.0 V |
+| Drain | 13.6 / 12.68 V | 13.6 / 12.7 V |
 
-Esquema: compuertas -3,9 / +0,6 V, fuente 0 / 0,7 V, drenador 13,5 / 12,6 V. El mezclador conduce en TX.
+Schematic: gates -3.9 / +0.6 V, source 0 / 0.7 V, drain 13.5 / 12.6 V. The mixer conducts on TX.
 
-## 4. RF unit: Q7 con la falla
+## 4. RF unit: Q7 with the fault
 
-| | Base | Colector | Emisor |
+| | Base | Collector | Emitter |
 |---|---|---|---|
 | RX | 0 | 0 | 0 |
-| TX medido | 2,0 V | 5,68 V | 5,68 V |
-| TX esperado (esquema) | unos 1,8 V | 11 V | 1,1 V |
+| TX measured | 2.0 V | 5.68 V | 5.68 V |
+| TX expected (schematic) | about 1.8 V | 11 V | 1.1 V |
 
-La base coincide con el divisor R42 (82K) y R40 (47K) con el colector a 5,68 V: 5,68 x 47 / 129 = 2,07 V.
+The base matches the R42 (82K) and R40 (47K) divider with the collector at 5.68 V: 5.68 x 47 / 129 = 2.07 V.
 
-## 5. Sondas por proximidad y de diodo
+## 5. Proximity and diode probes
 
-- **Lazo SDR:** señal que varía con el carrier en T1, Q2/Q3, T2, bases de Q4/Q5, T4 y PO. Detecta por proximidad: no prueba potencia.
-- **Sonda de diodo (tester, 1N4148):** 0 en PO, base y colector de Q1, T1 y colectores de Q2/Q3 (colector de Q1 con 30 a 60 mV en RX y TX, ruido). Reacciona con un handy, así que la sonda funciona. El silicio no rectifica por debajo de unos 0,5 V de pico.
+- **SDR loop:** signal that varies with the carrier at T1, Q2/Q3, T2, Q4/Q5 bases, T4 and PO. It detects by proximity: it does not prove power.
+- **Diode probe (multimeter, 1N4148):** 0 at PO, Q1 base and collector, T1 and Q2/Q3 collectors (Q1 collector with 30 to 60 mV on both RX and TX, noise). It responds to a handheld, so the probe works. Silicon does not rectify below about 0.5 V peak.
 
-## 6. Niveles con SDR++ (SNR, sonda de contacto 33 pF + 4,6 kohm)
+## 6. SDR++ levels (SNR, 33 pF + 4.6 kohm contact probe)
 
-Los números de SNR no son lineales ni calibrados. Comparar solo series con la misma ganancia.
+SNR numbers are neither linear nor calibrated. Only compare series with the same gain.
 
-| Serie | Ganancia | Frecuencia | Puntos |
+| Series | Gain | Frequency | Points |
 |---|---|---|---|
-| A | 43,4 | Operación | DRV de la RF unit 18 a 20 |
-| B | 37,2 | Operación | DRV ~15, base de Q1 ~15, colector de Q1 ~24, T1 sec. ~10, colectores de Q2/Q3 ~40 (posible saturación) |
-| B' | 8,7 | Operación | Colector de Q1 5, colectores de Q2/Q3 22, bases de Q4/Q5 9 |
-| C | 0 | 8828,5 kHz | J30 GEN 37, J32 TIF 20, J35 TIF 20 (carrier 50 %) |
-| D | 25,4 | 8825,5 kHz | J30 GEN 68, J32 TIF 48, J35 TIF 48 |
-| D' | 25,4 | 7074,5 kHz | C52 58, DRV 12, colector de Q1 20, colectores de Q2/Q3 35, bases de Q4/Q5 25, PO 54 |
-| E | 25,4 | 8828,5 kHz | J35 TIF 48, C11 lado L8 21 |
-| E' | 25,4 | 7074 kHz | C11 lado L8 32, C11 lado L7 75 (C11 une L8 con L7), C10 lado L6 52, otra pata de C10 35, C54 lado Q7 50, J34 ANT 5, J34 MKR 2, DRV 12 |
+| A | 43.4 | Operating | RF unit DRV 18 to 20 |
+| B | 37.2 | Operating | DRV ~15, Q1 base ~15, Q1 collector ~24, T1 sec. ~10, Q2/Q3 collectors ~40 (possible saturation) |
+| B' | 8.7 | Operating | Q1 collector 5, Q2/Q3 collectors 22, Q4/Q5 bases 9 |
+| C | 0 | 8828.5 kHz | J30 GEN 37, J32 TIF 20, J35 TIF 20 (carrier 50 %) |
+| D | 25.4 | 8825.5 kHz | J30 GEN 68, J32 TIF 48, J35 TIF 48 |
+| D' | 25.4 | 7074.5 kHz | C52 58, DRV 12, Q1 collector 20, Q2/Q3 collectors 35, Q4/Q5 bases 25, PO 54 |
+| E | 25.4 | 8828.5 kHz | J35 TIF 48, C11 L8 side 21 |
+| E' | 25.4 | 7074 kHz | C11 L8 side 32, C11 L7 side 75 (C11 joins L8 to L7), C10 L6 side 52, other leg of C10 35, C54 Q7 side 50, J34 ANT 5, J34 MKR 2, DRV 12 |
 
-## 7. Niveles nominales del manual (página 36)
+## 7. Nominal levels from the manual (page 36)
 
-A 14,25 MHz, con voltímetro de RF y el ALC a fondo de escala. Tensiones eficaces.
+At 14.25 MHz, with an RF voltmeter and ALC at full scale. RMS voltages.
 
-| Punto | Nominal |
+| Point | Nominal |
 |---|---|
-| Entrada de carrier al modulador (CAR) | 0,71 V |
-| Salida de la AF-GEN a la IF (GEN, Q12) | 0,112 V |
-| Salida del filtro de cristal | 0,033 V |
-| Salida de Q1 de la IF (IF amp) | 0,28 V |
-| Entrada del mezclador de TX (TIF) | 0,004 V |
-| Salida del mezclador (C52) | 0,165 V |
-| Q7 / Q8 / Q9 (entradas) | 0,16 / 0,15 / 0,11 V |
-| DRV (entrada de la Final) | 0,3 V |
-| Colector de Q1 de la Final | 1,75 V |
+| Carrier input to the modulator (CAR) | 0.71 V |
+| AF-GEN output to the IF (GEN, Q12) | 0.112 V |
+| Crystal filter output | 0.033 V |
+| IF Q1 output (IF amp) | 0.28 V |
+| TX mixer input (TIF) | 0.004 V |
+| Mixer output (C52) | 0.165 V |
+| Q7 / Q8 / Q9 (inputs) | 0.16 / 0.15 / 0.11 V |
+| DRV (Final unit input) | 0.3 V |
+| Final unit Q1 collector | 1.75 V |
 
-Ganancias nominales en tensión: GEN a TIF unos -29 dB; TIF a C52 unos +32 dB; C52 a DRV unos +5 dB; DRV a colector de Q1 unos +15 dB.
+Nominal voltage gains: GEN to TIF about -29 dB; TIF to C52 about +32 dB; C52 to DRV about +5 dB; DRV to Q1 collector about +15 dB.
 
-## 8. Medido contra nominal (serie de ganancia 25,4)
+## 8. Measured vs. nominal (gain 25.4 series)
 
-| Tramo | Medido | Nominal | Lectura |
+| Section | Measured | Nominal | Reading |
 |---|---|---|---|
-| GEN a TIF | -20 | -29 | Bien, sin pérdida |
-| TIF a C52 (mezclador) | +10 | +32 | Algo bajo, incierto (la referencia de TIF está antes de T4) |
-| C52 a C54 (BPF) | -8 | casi 0 | El BPF pasa la señal; SB-816 (470 ohm) puede explicar parte de la pérdida |
-| **C54 a DRV** | **-38** | **+5** | **Faltan unos 43 dB: el puente de estaño en Q7** |
-| DRV a colector de Q1 | +8 | +15 | Leve |
-| DRV a PO | +42 | unos 47 | Cercano al nominal |
+| GEN to TIF | -20 | -29 | Fine, no loss |
+| TIF to C52 (mixer) | +10 | +32 | Somewhat low, uncertain (the TIF reference is before T4) |
+| C52 to C54 (BPF) | -8 | almost 0 | The BPF passes the signal; SB-816 (470 ohm) may explain part of the loss |
+| **C54 to DRV** | **-38** | **+5** | **About 43 dB missing: the solder bridge on Q7** |
+| DRV to Q1 collector | +8 | +15 | Slight |
+| DRV to PO | +42 | about 47 | Close to nominal |
 
-Con los boletines SB-816 y SB-844 aplicados, los niveles nominales del manual en el BPF, Q9 y DRV pueden diferir.
+With bulletins SB-816 and SB-844 applied, the manual's nominal levels at the BPF, Q9 and DRV may differ.
 
-## 9. Valores de referencia con el equipo funcionando (a completar)
+## 9. Reference values with the radio working (to be filled in)
 
-| Medición | Esperado | Medido |
+| Measurement | Expected | Measured |
 |---|---|---|
-| Q7 RF unit, TX: base / colector / emisor | unos 1,8 / 11 / 1,1 V | |
-| Q8 RF unit, TX: base / emisor / colector | unos 2,8 / 2,1 / 9,9 V | |
-| Q9 RF unit, TX: base / emisor / colector | unos 1,1 / 0,5 / 12 V | |
-| DRV con SDR (ganancia 25,4, 7074 kHz, CW 50 %) | mucho más que 12 | |
-| PO con SDR | mucho más que 54 | |
-| Potencia de salida con vatímetro | | |
-| ALC e IC con carrier moderado | reaccionan | |
-| AVB en TX con excitación normal | unos 11 V | |
-| Corriente de reposo de los finales (F14) | 100 mA | |
-| Corriente de reposo de Q2/Q3 (D14) | 150 mA | |
-| Consumo TX con excitación normal | | |
+| RF unit Q7, TX: base / collector / emitter | about 1.8 / 11 / 1.1 V | |
+| RF unit Q8, TX: base / emitter / collector | about 2.8 / 2.1 / 9.9 V | |
+| RF unit Q9, TX: base / emitter / collector | about 1.1 / 0.5 / 12 V | |
+| DRV on the SDR (gain 25.4, 7074 kHz, CW 50 %) | much more than 12 | |
+| PO on the SDR | much more than 54 | |
+| Output power on a wattmeter | | |
+| ALC and IC with moderate carrier | they respond | |
+| AVB on TX with normal drive | about 11 V | |
+| Finals idle current (F14) | 100 mA | |
+| Q2/Q3 idle current (D14) | 150 mA | |
+| TX current draw with normal drive | | |

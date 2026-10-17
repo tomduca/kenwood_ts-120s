@@ -1,76 +1,76 @@
-# Pérdida repentina de TX, octubre de 2026
+# Sudden loss of TX, October 2026
 
-## Resumen
+## Summary
 
 | | |
 |---|---|
-| Síntoma | Sin TX en SSB ni en CW. RX perfecto. Medidores ALC e IC en 0 |
-| Causa raíz | Una **viruta de estaño hacía puente entre colector y emisor de Q7 (2SC1815)** en la RF unit |
-| Resolución | Se limpió y se desoldó la viruta el 17/10/2026; el TX volvió a funcionar. No se reportó reemplazo del transistor |
-| Origen de la viruta | No investigado |
+| Symptom | No TX in SSB or CW. RX perfect. ALC and IC meters at 0 |
+| Root cause | A **solder sliver was bridging the collector and emitter of Q7 (2SC1815)** in the RF unit |
+| Fix | The sliver was cleaned off and desoldered on 2026-10-17; TX came back. No transistor replacement was reported |
+| Origin of the sliver | Not investigated |
 
-## Síntoma
+## Symptom
 
-- RX correcto en todas las bandas.
-- Los relays conmutan y el PTT funciona (por MIC y por VOX).
-- Sin TX en SSB ni en CW. ALC e IC siempre en 0, con ganancia de mic y carrier al máximo.
-- Con carga fantasma, un handy sintonizado en la frecuencia, junto a la radio, no oye nada.
+- RX correct on all bands.
+- The relays switch and PTT works (via MIC and via VOX).
+- No TX in SSB or CW. ALC and IC always at 0, with mic gain and carrier at maximum.
+- Into a dummy load, a handheld tuned to the frequency, right next to the radio, hears nothing.
 
-## Contexto
+## Context
 
-- El equipo transmitía normalmente, en todas las bandas y modos, hasta unos dos días antes. La pérdida de TX fue repentina.
-- Todas las intervenciones del [historial](01-historial-de-intervenciones.md) eran anteriores.
-- El diagnóstico se hizo con tester y SDR, usando el diagrama de niveles del manual como referencia (ver [metodología](05-metodologia-y-sondas.md)).
+- The radio had been transmitting normally, on all bands and modes, until about two days earlier. The loss of TX was sudden.
+- All the work in the [repair history](01-repair-history.md) predates it.
+- The diagnosis was done with a multimeter and an SDR, using the manual's level diagram as the reference (see [methodology](05-methodology-and-probes.md)).
 
-## Causa raíz y por qué producía ese síntoma
+## Root cause and why it produced that symptom
 
-Q7 es la primera etapa amplificadora de TX después del BPF: un seguidor por emisor con el colector a la alimentación de TX y la salida por el emisor hacia Q8 (ver [referencia técnica](04-referencia-tecnica.md)). Con el colector y el emisor unidos por la viruta, el emisor quedaba a la tensión de la alimentación y la señal de salida se iba a masa por el desacople de esa alimentación. Solo pasaba lo que se acopla por capacidades parásitas, unos 40 dB menos. Como Q7 está alimentada únicamente en TX, el RX no se enteraba.
+Q7 is the first TX amplifier stage after the BPF: an emitter follower with its collector on the TX supply and its output taken from the emitter towards Q8 (see [technical reference](04-technical-reference.md)). With the collector and emitter joined by the sliver, the emitter sat at the supply voltage and the output signal was shunted to ground through that supply's decoupling. Only what couples through stray capacitance got through, about 40 dB down. Since Q7 is powered only on TX, RX was unaffected.
 
-Sin excitación, la Final conduce su corriente de reposo pero no recibe señal: la corriente no varía con el carrier, los medidores ALC e IC quedan en 0 y no hay potencia de salida.
+With no drive, the Final unit draws its idle current but receives no signal: the current does not change with the carrier, the ALC and IC meters stay at 0 and there is no output power.
 
-## Cómo se llegó a la causa (cronología del diagnóstico)
+## How the cause was found (diagnosis timeline)
 
-| # | Paso | Resultado |
+| # | Step | Result |
 |---|---|---|
-| 1 | Alimentación | 14 V estables; consumo RX 0,73 A y TX 1,87 A, sin variar con el carrier en CW. AVB: 0 V en RX y 11,3 a 11,4 V en TX (regulador de 11 V, normal) |
-| 2 | Continua en la Final | Bias de Q1, Q6, Q7, Q2/Q3 y Q4/Q5 coherente con el esquema; colectores con 13,8 V. La corriente de reposo medida (unos 160 mA) está algo por encima de los 100 mA del manual |
-| 3 | Señal en la IF | Portadora y modulación visibles en el SDR. De GEN a TIF no hay pérdida respecto del nominal (GEN 68 y TIF 48, ganancia 25,4): la IF unit, su ALC, D9 y el relay están bien |
-| 4 | Mezclador Q5/Q6 | Compuertas de -3,0/-3,34 V (RX) a +0,67/+0,77 V (TX), fuente de 0 a 1,0 V, drenador de 13,6 a 12,7 V: conduce, y la conmutación de bias (Q10) funciona |
-| 5 | Niveles con SDR a 7074 kHz | C52 58; salida del BPF (C54 lado Q7) 50; J34 ANT 5 y MKR 2; DRV 12. El BPF pasa la señal (unos -8 dB), no hay fuga hacia la antena, y de C54 a DRV faltan unos 43 dB respecto del nominal |
-| 6 | Continua de Q7 en TX | Base 2,0 V, colector 5,68 V, emisor 5,68 V (esperado: unos 1,8 / 11 / 1,1 V). Colector y emisor a la misma tensión: están unidos. La base coincide con el divisor R42/R40 con el colector a 5,68 V (unos 2,07 V) |
-| 7 | Reparación | Se limpió y se desoldó la viruta de estaño que unía colector y emisor; el TX funciona de nuevo |
+| 1 | Power supply | 14 V stable; current draw RX 0.73 A and TX 1.87 A, not changing with the carrier in CW. AVB: 0 V on RX and 11.3 to 11.4 V on TX (11 V regulator, normal) |
+| 2 | DC in the Final unit | Bias of Q1, Q6, Q7, Q2/Q3 and Q4/Q5 consistent with the schematic; collectors at 13.8 V. The measured idle current (about 160 mA) is somewhat above the manual's 100 mA |
+| 3 | Signal in the IF | Carrier and modulation visible on the SDR. From GEN to TIF there is no loss relative to nominal (GEN 68 and TIF 48, gain 25.4): the IF unit, its ALC, D9 and the relay are fine |
+| 4 | Mixer Q5/Q6 | Gates from -3.0/-3.34 V (RX) to +0.67/+0.77 V (TX), source from 0 to 1.0 V, drain from 13.6 to 12.7 V: it conducts, and the bias switching (Q10) works |
+| 5 | SDR levels at 7074 kHz | C52 58; BPF output (C54, Q7 side) 50; J34 ANT 5 and MKR 2; DRV 12. The BPF passes the signal (about -8 dB), there is no leakage towards the antenna, and from C54 to DRV about 43 dB are missing relative to nominal |
+| 6 | Q7 DC on TX | Base 2.0 V, collector 5.68 V, emitter 5.68 V (expected: about 1.8 / 11 / 1.1 V). Collector and emitter at the same voltage: they are shorted together. The base matches the R42/R40 divider with the collector at 5.68 V (about 2.07 V) |
+| 7 | Repair | The solder sliver joining collector and emitter was cleaned off and desoldered; TX works again |
 
-## Descartado y con qué evidencia
+## Ruled out, and on what evidence
 
-| Hipótesis | Evidencia en contra |
+| Hypothesis | Evidence against |
 |---|---|
-| Fuente, fusible, alimentación general | 14 V estables, RX normal |
-| Línea AVB y su conmutación; cable remendado | AVB 11,3 a 11,4 V en TX en la Final y en la RF unit |
-| Polarización de la Final | Valores cercanos al esquema |
-| Final en corto C-E | RX normal con la fuente estable |
-| Finales abiertos | Conducen en reposo (unos 160 mA); de DRV a PO hay unos +42 dB (nominal unos 47) |
-| IF unit (modulador, filtro, ALC, D9, relay) | GEN a TIF sin pérdida |
-| Bias de TX de la RF unit (Q10, KEY, D6/D7) | Compuertas de Q5/Q6 conmutan como en el esquema |
-| BPF y diodos D2/D3 | C52 a C54 pierde unos 8 dB; J34 ANT y MKR sin señal |
-| Cable DRV | DRV en la RF unit y en la Final coinciden |
-| Relays (IF, Filter) | La señal pasa por el relay de la IF y D9 con nivel nominal; RL1 está después de PO |
-| Protecciones térmicas | AVB presente en TX |
-| Reguladores fuera de rango | AVB 11,4 V, -6 V correcto, bias del mezclador y de la Final en rango |
+| Power supply, fuse, main supply | 14 V stable, RX normal |
+| AVB line and its switching; patched cable | AVB 11.3 to 11.4 V on TX at the Final unit and at the RF unit |
+| Final unit bias | Values close to the schematic |
+| Final shorted C-E | RX normal with a stable supply |
+| Open finals | They conduct at idle (about 160 mA); from DRV to PO there is about +42 dB (nominal about 47) |
+| IF unit (modulator, filter, ALC, D9, relay) | GEN to TIF with no loss |
+| RF unit TX bias (Q10, KEY, D6/D7) | Q5/Q6 gates switch as per the schematic |
+| BPF and diodes D2/D3 | C52 to C54 loses about 8 dB; no signal on J34 ANT and MKR |
+| DRV cable | DRV at the RF unit and at the Final unit match |
+| Relays (IF, Filter) | The signal passes through the IF relay and D9 at nominal level; RL1 is after PO |
+| Thermal protections | AVB present on TX |
+| Regulators out of range | AVB 11.4 V, -6 V correct, mixer and Final bias in range |
 
-## Lecciones del diagnóstico
+## Lessons from the diagnosis
 
-- El ohmetro en circuito engaña (finales, Q2/Q3, colectores): el transformador y las resistencias vecinas dan lecturas bajas o abiertas aunque el transistor esté bien.
-- Una señal por proximidad (lazo o sonda) no prueba potencia ni que el camino conduzca. Un corte deja pasar unos 40 a 60 dB por acople parásito.
-- El SNR del SDR no es lineal. Comparar solo puntos medidos con la misma ganancia y el mismo ancho de banda, y cada punto a su frecuencia correcta (FI a 8,83 MHz; RF a la frecuencia de operación).
-- El diagrama de niveles del manual (p. 36) fue decisivo: comparar las diferencias entre puntos consecutivos con las nominales ubica el tramo cortado.
-- La tensión de continua en cada pin de la etapa sospechosa confirmó la causa de una forma que la señal no podía.
-- Antes de cambiar piezas, una inspección visual con lupa de los pads de la etapa sospechosa: una viruta de estaño suelta explicaba todo.
-- AVB mide 11 V (no 14 V): sale de un regulador de 11 V.
+- The ohmmeter in circuit is misleading (finals, Q2/Q3, collectors): the transformer and neighboring resistors give low or open readings even when the transistor is fine.
+- A signal picked up by proximity (loop or probe) does not prove power or that the path conducts. A break still lets about 40 to 60 dB through by stray coupling.
+- SDR SNR is not linear. Only compare points measured with the same gain and the same bandwidth, and each point at its correct frequency (IF at 8.83 MHz; RF at the operating frequency).
+- The manual's level diagram (p. 36) was decisive: comparing the differences between consecutive points with the nominal ones locates the broken section.
+- The DC voltage on each pin of the suspect stage confirmed the cause in a way the signal could not.
+- Before swapping parts, inspect the pads of the suspect stage with a magnifier: a loose solder sliver explained everything.
+- AVB measures 11 V (not 14 V): it comes from an 11 V regulator.
 
-## Correcciones del propio proceso (para no repetirlas)
+## Mistakes made during the process (so as not to repeat them)
 
-- Se trató a Q8 a Q13 de la IF unit como cadena de TX; es el limitador de ruido (NB). El camino de TX pasa por Q1 de la IF, y CF1/CF2 son del camino de RX.
-- Se pensó que D6/D7 daban el bias de Q7; el bias sale de R42/R40.
-- Se supuso que los finales estaban abiertos por pruebas de ohmetro en circuito.
-- Se midió la resistencia de 15 mohm con el jack de Amp: cortocircuito directo, chispa y cable fundido (el equipo no sufrió daños).
-- Se tomaron lecturas a una frecuencia equivocada en J30/J32/J35 (se midió a la de operación en lugar de 8,83 MHz); se repitieron.
+- Q8 to Q13 in the IF unit were treated as the TX chain; they are the noise blanker (NB). The TX path goes through Q1 of the IF, and CF1/CF2 belong to the RX path.
+- D6/D7 were thought to provide Q7's bias; the bias comes from R42/R40.
+- The finals were assumed to be open based on in-circuit ohmmeter tests.
+- The 15 mohm resistor was measured with the lead in the Amp jack: a dead short, a spark and a melted lead (the radio was not damaged).
+- Readings at J30/J32/J35 were taken at the wrong frequency (the operating frequency instead of 8.83 MHz); they were repeated.
