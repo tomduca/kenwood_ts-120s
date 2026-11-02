@@ -99,3 +99,12 @@ According to the most recent logbook. The older summary said D2, D4 and D7 were 
 
 - Done: Relay, RF, IF, AF-GEN, PLL and Filter units (partially documented for the Filter unit).
 - Not done: CAR unit, Counter unit and Final unit (the Final unit's bias and decoupling electrolytics are still original).
+
+## Phase 3: S-meter on the high bands (Oct–Nov 2026)
+
+- The radio had an 11 m (CB) modification from the previous owner, undone by a technician before the recap. The S-meter has read poorly since then.
+- 2026-10-31: BPF coils L3–L14 moved and returned, no change.
+- 2026-11-01: **IF unit T6 peaked** on the CAL marker on 10 m; VR1 (span) backed off about 1/4 turn; VR2 unchanged. The S-meter came back to life on 10 m and reads less high on 40 m.
+- By 2026-11-02: L15–L17 (10 m) moved and returned, no change. BPF cleared on all bands.
+- Full write-up in [07-s-meter-high-bands-2026.md](07-s-meter-high-bands-2026.md).
+

@@ -21,7 +21,8 @@ Prioritized. The secondary problems come from the older summary; the close-out i
 9. **RIT unusable** after the recap. Probably a broken wiper wire (RT1) between the front-panel pot and pin 11 of J4 on the AF-GEN. Check continuity with the radio off and J4 disconnected.
 10. **Front-panel dual concentric pots (VR1, VR2 and VR3):** replacement. 50K can be used instead of the original 10K/5K with little impact, except VR3 (the RIT section, 5K). The VR2 switch is the critical point for mechanical compatibility.
 11. **IC meter** cannot be calibrated with Filter unit VR1: possibly a worn carbon track.
-12. **S-meter insensitive on 20, 15 and 10 m:** possible misalignment of L16/L17; re-measure D4 and D5.
+12. ~~**S-meter insensitive on 20, 15 and 10 m**~~ **Largely fixed on 2026-11-01** by peaking IF unit T6 and backing off VR1. BPF L3–L17 tested and cleared on all bands. Still reads a little low on 10 m. See [07](07-s-meter-high-bands-2026.md).
 13. **VFO micro-drift:** variable capacitor shaft with dirty lubrication.
 14. **RF GAIN pot** mechanically jammed: needs replacement.
-15. **Full calibration** of IF, RF and S-meter with a generator; BPF alignment on 20, 15 and 10 m; fine alignment of IF T1 to T9 (currently done by ear).
+15. **Full calibration** of IF, RF and S-meter with a generator: three-point S-meter calibration per the manual (VR1 S9+60, T6 S1, VR2 S9 at 14.175 MHz); fine alignment of IF T1 to T9. T6 was peaked by ear on the CAL marker on 2026-11-01.
+16. **Check the Relay unit board label** (X41-1250-00 or X41-1300-00 with ATT) and R3 (470 ohm) and R1 (56 ohm).
