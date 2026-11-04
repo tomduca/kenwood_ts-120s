@@ -2,7 +2,13 @@
 
 An **improvement**, not a repair: an RTL-SDR Blog V4 is fed from the TS-120S's 8.83 MHz IF and used as a **panadapter** (spectrum and waterfall around the operating frequency). There is **no CAT** link: the TS-120S has no computer interface, so the SDR does not follow the VFO and is tuned by hand to the IF.
 
-The build follows a video from the YouTube channel *Espacio de César*.
+The build follows a video from the YouTube channel *Espacio de César*: [source video](https://www.youtube.com/watch?v=JrP153SrSbA&t=358s).
+
+Video of this radio working with the IF panadapter: [TS-120S + IF panadapter](https://www.youtube.com/watch?v=3ZGHC09Vlz8).
+
+![Panadapter in use](../img/panadapter-in-use.png)
+
+*TS-120S on 7135.0 kHz; SDR++ on the laptop centered on 8.830 MHz, showing the 40 m band through the IF.*
 
 ## Overview
 

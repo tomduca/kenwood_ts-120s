@@ -23,7 +23,7 @@ Repair and maintenance log for a Kenwood TS-120S transceiver (HF, 8.83 MHz IF). 
 | [docs/07-s-meter-high-bands-2026.md](docs/07-s-meter-high-bands-2026.md) | S-meter on 20/15/10 m: diagnosis, RF ATT analysis, IF T6 fix |
 | [docs/08-if-panadapter-output.md](docs/08-if-panadapter-output.md) | Improvement: IF output with buffer amplifier for an RTL-SDR panadapter |
 | [docs/reference/](docs/reference/) | Transcriptions of the service manual and RF unit schematic, plus raw OCR of both manuals |
-| [img/](img/) | Schematics of the two probes (SVG); IF unit T6 location; IF buffer board photo |
+| [img/](img/) | Schematics of the two probes (SVG); IF unit T6 location; IF buffer board photo and panadapter in use |
 
 ## How to read this log
 
