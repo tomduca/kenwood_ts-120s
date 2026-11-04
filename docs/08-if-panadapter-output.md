@@ -51,9 +51,13 @@ The buffer does its job: the receiver is far less loaded with it than with a dir
 - For relative measurements the SDR gain was set to **0 dB** as a reference. SDR levels are relative SNR, not calibrated (see [03](03-measurements-and-levels.md) and [05](05-methodology-and-probes.md)).
 - The panadapter also showed simultaneous gain variations across all signals in the waterfall, possibly from the switching power supply (see [06](06-open-items.md)).
 
+## On TX
+
+The SDR picks up a fairly strong signal on TX, but it **does not saturate**. That makes it useful as a modulation monitor: level, shape and width of the transmitted signal can be watched on the waterfall. It is not known yet whether the TX signal arrives **directly through the IF tap** (probably not) or by **proximity pickup** from the transmitter inside the radio.
+
 ## Possible next steps
 
 - Draw the schematic of the board and record the IF tap point.
 - Measure the remaining S-meter drop again now that IF T6 has been peaked (2026-11-01).
 - Work out the SDR++ frequency offset/inversion so the waterfall reads in real dial frequency.
-- Check that the SDR is protected on TX (the IF tap may carry the TX IF signal too).
+- Find out how the TX signal reaches the SDR: lift the buffer input from the IF tap (buffer still powered, coax still connected) and transmit into a dummy load. If the signal is still there, it is proximity pickup inside the radio; if it disappears, it comes through the IF line.
