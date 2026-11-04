@@ -7,6 +7,7 @@ Repair and maintenance log for a Kenwood TS-120S transceiver (HF, 8.83 MHz IF). 
 - TX and RX working on all bands.
 - **S-meter on the high bands largely fixed (2026-11-01):** the key was peaking **IF unit T6**, then backing off VR1 (span) by about 1/4 turn. The RF unit band-pass filters (L3–L17) were tested on all bands and cleared. Fine calibration is waiting for test equipment. Details in [docs/07-s-meter-high-bands-2026.md](docs/07-s-meter-high-bands-2026.md).
 - Earlier repair (2026-10-17): a **solder sliver was bridging the collector and emitter of Q7** (RF unit), leaving the Final unit with no drive. The sliver was removed and TX came back.
+- **Improvement:** RTL-SDR Blog V4 used as a panadapter, fed from the 8.83 MHz IF through a 9 V buffer amplifier (no CAT). With the buffer the S-meter drops less than 1 S-unit on 40 m (about 2 S-units without it). Details in [docs/08-if-panadapter-output.md](docs/08-if-panadapter-output.md).
 - Main open items: post-repair checks (Final unit idle current, AVB under normal drive), RIT, IC meter, S-meter fine calibration, VFO drift, RF GAIN pot, recap of the remaining units and calibration. Details in [docs/06-open-items.md](docs/06-open-items.md).
 
 ## Contents
@@ -20,8 +21,9 @@ Repair and maintenance log for a Kenwood TS-120S transceiver (HF, 8.83 MHz IF). 
 | [docs/05-methodology-and-probes.md](docs/05-methodology-and-probes.md) | How it was measured: probes, frequencies, SDR settings, test points and precautions |
 | [docs/06-open-items.md](docs/06-open-items.md) | Prioritized open items |
 | [docs/07-s-meter-high-bands-2026.md](docs/07-s-meter-high-bands-2026.md) | S-meter on 20/15/10 m: diagnosis, RF ATT analysis, IF T6 fix |
+| [docs/08-if-panadapter-output.md](docs/08-if-panadapter-output.md) | Improvement: IF output with buffer amplifier for an RTL-SDR panadapter |
 | [docs/reference/](docs/reference/) | Transcriptions of the service manual and RF unit schematic, plus raw OCR of both manuals |
-| [img/](img/) | Schematics of the two probes (SVG); IF unit T6 location |
+| [img/](img/) | Schematics of the two probes (SVG); IF unit T6 location; IF buffer board photo |
 
 ## How to read this log
 
