@@ -31,12 +31,14 @@ Sources: service manual pp. 5–7, 33–40 and 42; WB4KDI RF unit and IF unit sc
 | 2026-11-01 | **IF T6 peaked** for maximum S-meter reading on the internal CAL marker, on 10 m | **Needle came back to life on 10 m** | T6 was off peak, probably since the 11 m undo |
 | 2026-11-01 | VR1 (span) reduced about 1/4 turn from maximum; VR2 (zero) unchanged | 40 m readings less exaggerated | Span no longer needs to be at its limit |
 | by 2026-11-02 | Moved BPF L15–L17 (10 m) and returned them (approx.) | No detectable change | **BPF cleared on all bands** |
+| 2026-11-12 | Noise floor at the IF panadapter (RTL-SDR, no AGC, same settings), antenna vs 50 ohm dummy load | 10 m: antenna −85, dummy load −100 dBFS (**+15 dB**). 40 m: antenna −65, dummy load −100 dBFS (**+35 dB**) | **The receiver is not deaf on 10 m**: band noise is clearly above the internal noise. The 20 dB difference in antenna noise between 40 and 10 m matches the expected drop in man-made noise with frequency (≈15–17 dB from 7 to 28 MHz), plus the known 40 m noise problem. A low resting needle on 10 m is mostly a quieter band |
 
 ## Conclusion
 
 - What looked like missing gain on the high bands was mostly an **S-meter indication problem**: T6 off peak, so little IF gain before the AGC detector. VR1 at maximum span tried to compensate, which expanded the scale. That made 40 m band noise (just above the AGC threshold) read S6–7 while the quieter high bands (just below it) read S0–1.
 - **IF T6 was the key adjustment.**
 - After the adjustment, the 10 m needle moves (from S0–1 upward) but still reads a little low in the owner's opinion. It is accepted as-is until proper test equipment is available.
+- The antenna vs dummy load test (2026-11-12) shows 10 m band noise 15 dB above the receiver's internal noise, so there is no gross sensitivity loss on 10 m. What remains is S-meter calibration. Caveat: the dummy load floor was −100 dBFS on both bands, which may be the RTL-SDR's own floor rather than the radio's. If so, the real rises are larger than measured, and the test cannot show small gain differences between bands. To check, disconnect the IF feed at the SDR input and see whether the floor stays at −100.
 
 ## Pending (with test equipment)
 
