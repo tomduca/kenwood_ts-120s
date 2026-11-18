@@ -40,7 +40,6 @@ Differences in this build compared with the original schematic:
 
 - Powered from **9 V** instead of 12 V.
 - **C2 (1 nF)** is not on the board: it is soldered directly at the tap on the IF unit (CF1), so it does not show in the board photo.
-- A **200 ohm resistor** was added to limit the signal level. Its exact position in the circuit is not recorded yet.
 
 ## Tap point in the radio
 
@@ -82,5 +81,4 @@ The SDR picks up a fairly strong signal on TX, but it **does not saturate**. Tha
 ## Possible next steps
 
 - Find out how the TX signal reaches the SDR. Lift the buffer input from CF1, keep the buffer powered and the coax connected, and transmit into a dummy load. If the signal is still there, it is proximity pickup inside the radio. If it disappears, it comes through the IF line.
-- Record where the 200 ohm resistor sits in the circuit.
 - Measure the remaining S-meter drop again now that IF T6 has been peaked (2026-11-01), with the SDR connected and disconnected.
