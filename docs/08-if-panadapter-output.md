@@ -29,7 +29,7 @@ IF unit, CF1 (8.83 MHz) ──► J310 buffer amplifier (9 V) ──► coax ─
 
 | Ref | Part | Function |
 |---|---|---|
-| C2 | 1 nF | Input DC block from the IF tap |
+| C2 | 1 nF | Input DC block from the IF tap. In this build it is soldered directly at the tap on the IF unit (CF1), not on the board |
 | R1 | 220 kohm | Gate to ground (high input impedance, light load on the IF) |
 | U1 | **J310** (N-channel JFET, TO-92) | Common-source amplifier, source to ground |
 | U2 | Ferrite toroid, **5 + 2 turns** | 5-turn drain winding to +V; 2-turn output winding steps the impedance down for the SDR |
@@ -39,11 +39,12 @@ IF unit, CF1 (8.83 MHz) ──► J310 buffer amplifier (9 V) ──► coax ─
 Differences in this build compared with the original schematic:
 
 - Powered from **9 V** instead of 12 V.
-- A **200 ohm resistor** was added in series at the input to limit the level taken from the IF. It is **not on the board**: it is soldered directly at the tap (CF1), so it does not show in the board photo.
+- **C2 (1 nF)** is not on the board: it is soldered directly at the tap on the IF unit (CF1), so it does not show in the board photo.
+- A **200 ohm resistor** was added to limit the signal level. Its exact position in the circuit is not recorded yet.
 
 ## Tap point in the radio
 
-The buffer input (H1) connects to the **IF unit, CF1, top-right pin** (as seen in the PCB layout below), through the 200 ohm resistor soldered right at that pin.
+The buffer input (H1) connects to the **IF unit, CF1, top-right pin** (as seen in the PCB layout below), through C2 (1 nF), which is soldered right at that pin.
 
 ![IF unit CF1 tap](../img/if-unit-cf1-tap.png)
 
@@ -81,4 +82,5 @@ The SDR picks up a fairly strong signal on TX, but it **does not saturate**. Tha
 ## Possible next steps
 
 - Find out how the TX signal reaches the SDR. Lift the buffer input from CF1, keep the buffer powered and the coax connected, and transmit into a dummy load. If the signal is still there, it is proximity pickup inside the radio. If it disappears, it comes through the IF line.
+- Record where the 200 ohm resistor sits in the circuit.
 - Measure the remaining S-meter drop again now that IF T6 has been peaked (2026-11-01), with the SDR connected and disconnected.
